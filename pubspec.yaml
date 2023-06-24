@@ -1,7 +1,7 @@
 name: material_calendar_event
 description: A new Flutter project.
 version: 1.0.1
-homepage:
+homepage: https://github.com/AravinthC-18/material_calendar_event
 
 environment:
   sdk: '>=3.0.0-163.1.beta <4.0.0'
