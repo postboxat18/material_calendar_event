@@ -205,15 +205,8 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
         if (i == 1) {
           for (int k = 0; k < 7; k++) {
             if (k < startPosition) {
-              // DateList list = DateList("", "", "");
-              //dateList.add(list);
               str.add("");
             } else {
-              /*var date1 = DateTime(year, month, m);
-              String weekDays = DateFormat("EEE").format(date1);
-              DateList list = DateList(m.toString(), "",
-                  weekDays == "Sat" || weekDays == "Sun" ? "" : "9:15");
-              dateList.add(list);*/
               str.add(m.toString());
 
               m += 1;
@@ -222,17 +215,6 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
         } else {
           str.add(endDate >= j ? j.toString() : "");
 
-          /* if (j == 7 || j == 5 || j == 17 || j == 25) {
-            DateList list = DateList(endDate >= j ? j.toString() : "",
-                j == 7 || j == 17 || j == 25 ? "LOP" : "CL", "");
-            dateList.add(list);
-          } else {
-            var date1 = DateTime(year, month, j);
-            String weekDays = DateFormat("EEE").format(date1);
-            DateList list = DateList(endDate >= j ? j.toString() : "", "",
-                weekDays == "Sat" || weekDays == "Sun" ? "" : "9:20");
-            dateList.add(list);
-          }*/
         }
 
         hasMap[i] = str;
@@ -458,7 +440,6 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
               Column(
                 children: [
                   //DATE
-
                   CheckCurrenDate(str[j].toString()),
                 ],
               )
