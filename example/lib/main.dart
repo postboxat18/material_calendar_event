@@ -55,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       currentDate;
     });
+
     super.initState();
   }
 
