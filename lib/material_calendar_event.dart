@@ -319,7 +319,7 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
             context: context,
             builder: (BuildContext context) {
               return Theme(
-                  data: ThemeData(backgroundColor: Color(0xffEBEFF3)),
+                  data: ThemeData(backgroundColor: Color(0xff0074B7)),
                   child: AlertDialog(
                     backgroundColor: const Color(0xffEBEFF3),
                     shape: RoundedRectangleBorder(
