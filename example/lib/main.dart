@@ -33,7 +33,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   late DateTime currentDate;
-  /*late List<EvenList> evenList = [
+
+  late List<EvenList> evenList = [
     EvenList("9:32", 0xff008A5E, "2023-06-01", ""),
     EvenList("10:20", 0xff008A5E, "2023-06-02", ""),
     EvenList("11:00", 0xff008A5E, "2023-06-03", ""),
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
     EvenList("", 0xffB73434, "2023-06-20", "LOP"),
     EvenList("9:20", 0xff008A5E, "2023-06-21", ""),
     EvenList("9:20", 0xff008A5E, "2023-06-22", ""),
-  ];*/
+  ];
 
   @override
   void initState() {
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(child: MaterialCalendarEvent(currentDate: currentDate)),
+      body: Center(child: MaterialCalendarEvent(currentDate: currentDate,evenList: evenList,)),
     );
   }
 }

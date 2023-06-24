@@ -112,10 +112,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "7d9f3df7851ffab414bd2d9cb725f09167aa595c"
+      resolved-ref: f90d00e5dd084ddc8c18bfedf93d14280320459d
       url: "https://github.com/AravinthC-18/material_calendar_event.git"
     source: git
-    version: "1.0.0"
+    version: "1.0.1"
   material_color_utilities:
     dependency: transitive
     description:
