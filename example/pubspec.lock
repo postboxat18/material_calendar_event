@@ -75,6 +75,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   js:
     dependency: transitive
     description:
@@ -99,6 +107,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.12.15"
+  material_calendar_event:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: ac3bc44a62025844976fe8d0785c6116cc85b1ea
+      url: "https://github.com/AravinthC-18/material_calendar_event.git"
+    source: git
+    version: "1.0.0"
   material_color_utilities:
     dependency: transitive
     description:
@@ -186,3 +203,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=3.0.5 <4.0.0"
+  flutter: ">=1.17.0"

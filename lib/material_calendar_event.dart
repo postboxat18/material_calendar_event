@@ -68,15 +68,6 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffEBEFF3),
-      appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Row(
-            children: [
-              Text("Material Calendar",
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.w700)),
-            ],
-          )),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

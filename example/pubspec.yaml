@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  MaterialCalendarEvent:
+  material_calendar_event:
     git:
       url: https://github.com/AravinthC-18/material_calendar_event.git
 
