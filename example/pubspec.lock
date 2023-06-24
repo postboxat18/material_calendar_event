@@ -112,7 +112,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: ac3bc44a62025844976fe8d0785c6116cc85b1ea
+      resolved-ref: "7d9f3df7851ffab414bd2d9cb725f09167aa595c"
       url: "https://github.com/AravinthC-18/material_calendar_event.git"
     source: git
     version: "1.0.0"
