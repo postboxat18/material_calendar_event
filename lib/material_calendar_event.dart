@@ -1,16 +1,19 @@
 library material_calendar_event;
 
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:intl/intl.dart";
 
 class MaterialCalendarEvent extends StatefulWidget {
   final DateTime currentDate;
+  List<EvenList>? evenList=[];
 
-  const MaterialCalendarEvent({super.key, required this.currentDate});
+  MaterialCalendarEvent({super.key, required this.currentDate,this.evenList});
 
   @override
-  State<StatefulWidget> createState() => MaterialCalendarEvent1(currentDate);
+  State<StatefulWidget> createState() => MaterialCalendarEvent1(currentDate,evenList);
 }
 
 class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
@@ -47,8 +50,9 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
     "Nov",
     "Dec"
   ];
+  List<EvenList>? evenList=[];
 
-  MaterialCalendarEvent1(this.currentDate);
+  MaterialCalendarEvent1(this.currentDate,this.evenList);
 
   @override
   void initState() {
@@ -441,6 +445,9 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
                 children: [
                   //DATE
                   CheckCurrenDate(str[j].toString()),
+                  //EVENLIST
+                  CheckEventList(str[j].toString()),
+
                 ],
               )
             ]
@@ -492,4 +499,77 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
     String weekDays = DateFormat('EEE').format(date1);
     return weekDays == "Sat" || weekDays == "Sun" ? Colors.red : Colors.black;
   }
+
+  CheckEventList(String day) {
+    print("CheckEventList");
+    bool isTrue = true;
+    var dateFormat;
+    if (day.isEmpty) {
+    } else {
+      var monthFormat =
+      DateFormat('yyyy-MMM-dd').parse("$currentYear-$currentMonth-$day");
+      dateFormat = DateFormat('yyyy-MM-dd').format(monthFormat);
+      print(dateFormat.toString());
+    }
+    return Visibility(
+        visible: day.isEmpty ? false : isTrue,
+        maintainAnimation: true,
+        maintainState: true,
+        maintainSize: true,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            for (int l = 0; l < evenList!.length; l++) ...[
+              if (dateFormat.toString() == evenList?[l].date.toString()) ...[
+                //EVENT
+                CheckCurrentEvent(evenList![l].date.toString(),
+                    evenList![l].clr.toString(), evenList![l].time.toString()),
+                //TIME
+                CheckCurrentTime(
+                    evenList![l].date.toString(), evenList![l].time.toString()),
+              ] else ...[
+                Text("")
+              ]
+            ]
+          ],
+        ));
+  }
+  CheckCurrentEvent(String day, String clr, String time) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+      child: Icon(Icons.circle_rounded, color: Color(int.parse(clr)), size: 5),
+    );
+
+
+    bool isTrue = true;
+    if (day.isEmpty) {
+    } else {
+      /*var monthFormat =
+          DateFormat('yyyy-MMM-dd').parse("$currentYear-$currentMonth-$day");*/
+      var monthFormat = DateFormat('yyyy-MM-dd').parse(day);
+      isTrue = currentDate.isAfter(monthFormat);
+    }
+
+
+  }
+
+  CheckCurrentTime(String day, String time) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(5, 5, 0, 0),
+      child: Text(day.isEmpty ? "" : time,
+          style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400)),
+    );
+  }
+
+
+}
+
+class EvenList {
+  String? time;
+  int? clr;
+  String? date;
+  String? msg;
+
+  EvenList(this.time, this.clr, this.date, this.msg);
 }
