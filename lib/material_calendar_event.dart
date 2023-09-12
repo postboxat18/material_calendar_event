@@ -13,13 +13,12 @@ class MaterialCalendarEvent extends StatefulWidget {
   MaterialCalendarEvent({super.key, required this.currentDate,this.evenList});
 
   @override
-  State<StatefulWidget> createState() => MaterialCalendarEvent1(currentDate,evenList);
+  State<StatefulWidget> createState() => MaterialCalendarEvent1();
 }
 
 class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
   late int month, year;
   late String currentMonth, currentYear;
-  late DateTime currentDate;
   late int startPosition = 0;
   late int endDate;
   late Map<int, dynamic> hasMap = {};
@@ -50,18 +49,17 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
     "Nov",
     "Dec"
   ];
-  List<EvenList>? evenList=[];
 
-  MaterialCalendarEvent1(this.currentDate,this.evenList);
+
 
   @override
   void initState() {
     setState(() {
-      currentDate;
-      month = currentDate.month;
-      year = currentDate.year;
-      currentMonth = DateFormat("MMM").format(currentDate);
-      currentYear = DateFormat("yyyy").format(currentDate);
+      widget.currentDate;
+      month = widget.currentDate.month;
+      year = widget.currentDate.year;
+      currentMonth = DateFormat("MMM").format(widget.currentDate);
+      currentYear = DateFormat("yyyy").format(widget.currentDate);
     });
     GetEndDate(month, year);
 
@@ -458,9 +456,9 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
   }
 
   CheckCurrenDate(String day) {
-    String findMonth = DateFormat('MMM').format(currentDate);
-    String findYear = DateFormat('yyyy').format(currentDate);
-    String findDate = DateFormat('dd').format(currentDate);
+    String findMonth = DateFormat('MMM').format(widget.currentDate);
+    String findYear = DateFormat('yyyy').format(widget.currentDate);
+    String findDate = DateFormat('dd').format(widget.currentDate);
     return currentYear == findYear &&
             currentMonth == findMonth &&
             day == findDate
@@ -520,14 +518,14 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            for (int l = 0; l < evenList!.length; l++) ...[
-              if (dateFormat.toString() == evenList?[l].date.toString()) ...[
+            for (int l = 0; l < widget.evenList!.length; l++) ...[
+              if (dateFormat.toString() == widget.evenList?[l].date.toString()) ...[
                 //EVENT
-                CheckCurrentEvent(evenList![l].date.toString(),
-                    evenList![l].clr.toString(), evenList![l].time.toString()),
+                CheckCurrentEvent(widget.evenList![l].date.toString(),
+                    widget.evenList![l].clr.toString(), widget.evenList![l].time.toString()),
                 //TIME
                 CheckCurrentTime(
-                    evenList![l].date.toString(), evenList![l].time.toString()),
+                    widget.evenList![l].date.toString(), widget.evenList![l].time.toString()),
               ] else ...[
                 Text("")
               ]
@@ -548,7 +546,7 @@ class MaterialCalendarEvent1 extends State<MaterialCalendarEvent> {
       /*var monthFormat =
           DateFormat('yyyy-MMM-dd').parse("$currentYear-$currentMonth-$day");*/
       var monthFormat = DateFormat('yyyy-MM-dd').parse(day);
-      isTrue = currentDate.isAfter(monthFormat);
+      isTrue = widget.currentDate.isAfter(monthFormat);
     }
 
 
