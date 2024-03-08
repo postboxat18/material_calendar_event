@@ -1,22 +1,22 @@
 name: material_calendar_event
 description: Material Calendar Event.
-version: 2.0.0
+version: 1.1.1
 homepage: https://github.com/postboxat18/material_calendar_event.git
 
 environment:
-  sdk: '>=3.0.0-163.1.beta <4.0.0'
+  sdk: '>=3.0.0-417.1.beta <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.18.1
+  intl: ^0.19.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 
 # For information on the generic Dart part of this file, see the
