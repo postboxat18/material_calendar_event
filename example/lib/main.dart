@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:material_calendar_event/material_calendar_event.dart';
 
 void main() {
@@ -32,40 +33,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late DateTime currentDate;
-
-  late List<EvenList> evenList = [
-    EvenList("9:32", 0xff008A5E, "2023-06-01", ""),
-    EvenList("10:20", 0xff008A5E, "2023-06-02", ""),
-    EvenList("11:00", 0xff008A5E, "2023-06-03", ""),
-    EvenList("5:20", 0xff008A5E, "2023-06-04", ""),
-    EvenList("9:20", 0xff008A5E, "2023-06-05", ""),
-    EvenList("", 0xffB73434, "2023-06-06", "LOP"),
-    EvenList("9:20", 0xff008A5E, "2023-06-07", ""),
-    EvenList("", 0xffF1BE41, "2023-06-08", "CL"),
-    EvenList("9:20", 0xff008A5E, "2023-06-09", ""),
-    EvenList("9:20", 0xff008A5E, "2023-06-10", ""),
-    EvenList("", 0xffF1BE41, "2023-06-11", "CL"),
-    EvenList("", 0xffB73434, "2023-06-12", "LOP"),
-    EvenList("9:20", 0xff008A5E, "2023-06-13", ""),
-    EvenList("9:20", 0xff008A5E, "2023-06-14", ""),
-    EvenList("9:32", 0xff008A5E, "2023-06-15", ""),
-    EvenList("10:20", 0xff008A5E, "2023-06-16", ""),
-    EvenList("11:00", 0xff008A5E, "2023-06-17", ""),
-    EvenList("5:20", 0xff008A5E, "2023-06-18", ""),
-    EvenList("9:20", 0xff008A5E, "2023-06-19", ""),
-    EvenList("", 0xffB73434, "2023-06-20", "LOP"),
-    EvenList("9:20", 0xff008A5E, "2023-06-21", ""),
-    EvenList("9:20", 0xff008A5E, "2023-06-22", ""),
+  late List<EventList> eventList = [
+    EventList("2024-03-01",
+        {"2024-03-01": [EventName(Color(0xff008A5E), "10:20", "10:20")]}),
+    EventList("2024-03-03",
+        {"2024-03-03": [EventName(Color(0xffF1BE41), "PH", "Public Holiday")]}),
+    EventList("2024-03-05",
+        {"2024-03-05": [EventName(Color(0xff008A5E), "10:20", "10:20"), EventName(Color(0xffB73434), "SL", "Sick Leave")]}),
+    EventList("2024-03-06",
+        {"2024-03-06": [EventName(Color(0xff008A5E), "10:20", "10:20")]}),
+    EventList("2024-03-07",
+        {"2024-03-07": [EventName(Color(0xffB73434), "CL", "Casual Leave")]}),
+    EventList("2024-03-10",
+        {"2024-03-10": [EventName(Color(0xffF1BE41), "PH", "Public Holiday")]}),
+    EventList("2024-03-11",
+        {"2024-03-11": [EventName(Color(0xff008A5E), "10:20", "10:20"),EventName(Color(0xffB73434), "CL", "Casual Leave")]}),
+    EventList("2024-03-14",
+        {"2024-03-14": [EventName(Color(0xffF1BE41), "CL", "Casual Leave")]}),
+    EventList("2024-03-15",
+        {"2024-03-15": [EventName(Color(0xffF1BE41), "PH", "Public Holiday")]}),
+    EventList("2024-03-16",
+        {"2024-03-16":[ EventName(Color(0xff008A5E), "10:20", "10:20")]}),
+    EventList("2024-03-18",
+        {"2024-03-18":[ EventName(Color(0xff008A5E), "10:20", "10:20"),EventName(Color(0xffB73434), "SL", "Sick Leave")]}),
+    EventList("2024-03-20",
+        {"2024-03-20": [EventName(Color(0xff008A5E), "10:20", "10:20")]}),
+    EventList("2024-03-22",
+        {"2024-03-22": [EventName(Color(0xffB73434), "SL", "Sick Leave")]}),
+    EventList("2024-03-24",
+        {"2024-03-24": [EventName(Color(0xff008A5E), "10:20", "10:20")]}),
+    EventList("2024-03-26",
+        {"2024-03-26":[ EventName(Color(0xffB73434), "CL", "Casual Leave")]}),
+    EventList("2024-03-29",
+        {"2024-03-29": [EventName(Color(0xff008A5E), "10:20", "10:20")]}),
+    EventList("2024-03-30",
+        {"2024-03-30": [EventName(Color(0xffF1BE41), "SL", "Sick Leave")]}),
   ];
+
 
   @override
   void initState() {
-    currentDate = DateTime.now();
-    setState(() {
-      currentDate;
-    });
-
     super.initState();
   }
 
@@ -76,7 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(child: MaterialCalendarEvent(currentDate: currentDate,evenList: evenList,)),
+      body:  SingleChildScrollView(child: MaterialCalendarEvent(Colors.grey, Colors.blueAccent, DateFormat("MMMM-yyyy")
+              .format(DateTime.now()), eventList),),
     );
   }
 }

@@ -1,7 +1,7 @@
 name: material_calendar_event
 description: Material Calendar Event.
-version: 1.0.1
-homepage: https://github.com/AravinthC-18/material_calendar_event
+version: 2.0.0
+homepage: https://github.com/postboxat18/material_calendar_event.git
 
 environment:
   sdk: '>=3.0.0-163.1.beta <4.0.0'
