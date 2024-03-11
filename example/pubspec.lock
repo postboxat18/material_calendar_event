@@ -128,10 +128,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "9279a0a5d211f5be2410fbe4164e20c6a1ebe546"
+      resolved-ref: fd55e68519c105f018ed3ded322544ac416d9396
       url: "https://github.com/postboxat18/material_calendar_event.git"
     source: git
-    version: "2.0.0"
+    version: "1.0.2"
   material_color_utilities:
     dependency: transitive
     description:
