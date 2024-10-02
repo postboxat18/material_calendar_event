@@ -128,7 +128,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "07365f23a0d42de8dc6140b0bdc4d0bc17d4674a"
+      resolved-ref: "417e7a8a847a2814053c2fdf188086743699e3ae"
       url: "https://github.com/postboxat18/material_calendar_event.git"
     source: git
     version: "1.0.2"
