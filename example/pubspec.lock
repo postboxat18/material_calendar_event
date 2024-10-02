@@ -76,7 +76,7 @@ packages:
     source: sdk
     version: "0.0.0"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
@@ -129,7 +129,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "07365f23a0d42de8dc6140b0bdc4d0bc17d4674a"
-      url: "https://github.com/AravinthC-18/material_calendar_event.git"
+      url: "https://github.com/postboxat18/material_calendar_event.git"
     source: git
     version: "1.0.2"
   material_color_utilities:
